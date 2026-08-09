@@ -1,6 +1,6 @@
-import { Link, useLocation } from 'react-router-dom'
-import { Brain, Menu, X, ArrowRight, User } from 'lucide-react'
-import { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Brain, Menu, X, ArrowRight, User, LogOut } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -11,7 +11,33 @@ const navLinks = [
 
 export default function Navbar() {
   const location = useLocation()
+  const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [user, setUser] = useState<{ name?: string; email?: string } | null>(null)
+
+  useEffect(() => {
+    const checkUser = () => {
+      const stored = localStorage.getItem('cohortiq_user')
+      if (stored) {
+        try {
+          setUser(JSON.parse(stored))
+        } catch {
+          setUser(null)
+        }
+      } else {
+        setUser(null)
+      }
+    }
+    checkUser()
+    window.addEventListener('storage', checkUser)
+    return () => window.removeEventListener('storage', checkUser)
+  }, [location.pathname])
+
+  const handleLogout = () => {
+    localStorage.removeItem('cohortiq_user')
+    setUser(null)
+    navigate('/')
+  }
 
   const handleNavClick = (to: string) => {
     setMobileOpen(false)
@@ -64,20 +90,44 @@ export default function Navbar() {
 
         {/* Right CTA Area */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            to="/login"
-            className="flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold text-zinc-700 transition hover:bg-zinc-100 hover:text-zinc-900"
-          >
-            <User className="h-3.5 w-3.5" />
-            Login
-          </Link>
-          <Link
-            to="/setup"
-            className="inline-flex items-center gap-1.5 rounded-full bg-zinc-900 hover:bg-zinc-800 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-zinc-900/20 transition-all hover:scale-[1.03] active:scale-[0.98]"
-          >
-            Get Started
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-3">
+              <Link
+                to="/dashboard"
+                className="flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1.5 text-xs font-bold text-orange-700 hover:bg-orange-100 transition"
+              >
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500 text-[10px] text-white">
+                  {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                </span>
+                <span>{user.name || 'Account'}</span>
+              </Link>
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="flex items-center gap-1 rounded-full p-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 transition text-xs font-medium"
+                title="Sign Out"
+              >
+                <LogOut className="h-4 w-4" />
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold text-zinc-700 transition hover:bg-zinc-100 hover:text-zinc-900"
+              >
+                <User className="h-3.5 w-3.5" />
+                Login
+              </Link>
+              <Link
+                to="/setup"
+                className="inline-flex items-center gap-1.5 rounded-full bg-zinc-900 hover:bg-zinc-800 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-zinc-900/20 transition-all hover:scale-[1.03] active:scale-[0.98]"
+              >
+                Get Started
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Hamburger Toggle */}

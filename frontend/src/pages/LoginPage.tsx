@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Brain, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { useNavigate, Link } from 'react-router-dom'
+import { Brain, ArrowRight, CheckCircle2, ArrowLeft } from 'lucide-react'
 
 export default function LoginPage() {
   const navigate = useNavigate()
@@ -53,13 +53,23 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#0c0907] text-white flex items-center justify-center overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#0c0907] text-white flex flex-col items-center justify-center overflow-x-hidden">
+      {/* Top Floating Back to Home Bar */}
+      <div className="absolute top-6 left-6 z-20">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/90 px-4 py-2 text-xs font-semibold text-zinc-300 hover:border-orange-500/50 hover:text-white transition-all shadow-lg backdrop-blur-md"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" /> Back to Home
+        </Link>
+      </div>
+
       {/* Subtle Ambient Orange Glow Background */}
       <div className="pointer-events-none absolute top-1/4 left-10 h-[500px] w-[500px] rounded-full bg-orange-500/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-10 right-10 h-[400px] w-[400px] rounded-full bg-amber-500/5 blur-[100px]" />
 
       {/* Main Centered 1400px Container */}
-      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-12 lg:px-[70px] py-8 lg:py-12 min-h-screen flex items-center">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-12 lg:px-[70px] py-8 lg:py-12 min-h-screen flex items-center pt-20 sm:pt-12">
         
         {/* 2-Column Grid Layout */}
         <div className="w-full grid lg:grid-cols-[minmax(0,1fr)_minmax(400px,460px)] gap-10 lg:gap-20 items-center">
@@ -68,13 +78,13 @@ export default function LoginPage() {
           <div className="flex flex-col items-start max-w-[550px] w-full">
             
             {/* Logo / Icon */}
-            <div className="flex h-[56px] w-[56px] items-center justify-center rounded-2xl bg-gradient-to-tr from-orange-500 to-amber-500 text-white shadow-xl shadow-orange-500/25 transition-transform hover:scale-105 mb-10 sm:mb-[44px]">
+            <Link to="/" className="flex h-[56px] w-[56px] items-center justify-center rounded-2xl bg-gradient-to-tr from-orange-500 to-amber-500 text-white shadow-xl shadow-orange-500/25 transition-transform hover:scale-105 mb-10 sm:mb-[44px]">
               <Brain className="h-7 w-7" />
-            </div>
+            </Link>
 
             {/* CohortIQ Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.1] mb-5 sm:mb-[22px]">
-              Cohort<span className="text-orange-500">IQ</span>
+              <Link to="/" className="hover:text-zinc-100 transition">Cohort<span className="text-orange-500">IQ</span></Link>
             </h1>
 
             {/* Description */}
