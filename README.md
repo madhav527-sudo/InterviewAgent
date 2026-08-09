@@ -34,17 +34,24 @@ Visit **http://localhost:5173** in your browser.
 
 ## Deployment Instructions
 
-### Deploy Frontend (Vercel / Netlify / Render Static)
-1. Set Build Command: `npm run build`
-2. Set Output Directory: `dist`
-3. Environment Variables:
-   - `VITE_API_BASE_URL`: URL of deployed backend (e.g. `https://your-backend.onrender.com`)
+### ⚡ 1-Click Frontend Deployment (Vercel)
+Simply import your GitHub repository (`madhav527-sudo/InterviewAgent`) into Vercel.  
+Zero configuration required — root `package.json` and `vercel.json` handle everything automatically!
 
-### Deploy Backend (Render / Railway / Fly.io / Heroku)
-1. Build Command: `pip install -r requirements.txt`
-2. Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-3. Environment Variables:
-   - `CORS_ORIGINS`: Frontend URL (or `*` for all origins)
+* **Build Command**: `npm run build`
+* **Output Directory**: `frontend/dist` *(auto-detected)*
+* **Environment Variables (Optional)**:
+  - `VITE_API_BASE_URL`: Deployed backend URL (e.g. `https://cohortiq-api.onrender.com`)
+
+---
+
+### 🐍 Backend Deployment (Render / Railway / Fly.io / Heroku)
+* **Root Directory**: `backend`
+* **Build Command**: `pip install -r requirements.txt`
+* **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+* **Environment Variables**:
+  - `CORS_ORIGINS`: Frontend URL (e.g. `https://interview-agent-five.vercel.app`) or `*` for all origins
+  - `GEMINI_API_KEY`: *(Optional)* Your Google Gemini API Key for live AI generation
 
 
 ## Features
