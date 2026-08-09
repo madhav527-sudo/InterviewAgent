@@ -32,6 +32,21 @@ npm run dev
 
 Visit **http://localhost:5173** in your browser.
 
+## Deployment Instructions
+
+### Deploy Frontend (Vercel / Netlify / Render Static)
+1. Set Build Command: `npm run build`
+2. Set Output Directory: `dist`
+3. Environment Variables:
+   - `VITE_API_BASE_URL`: URL of deployed backend (e.g. `https://your-backend.onrender.com`)
+
+### Deploy Backend (Render / Railway / Fly.io / Heroku)
+1. Build Command: `pip install -r requirements.txt`
+2. Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+3. Environment Variables:
+   - `CORS_ORIGINS`: Frontend URL (or `*` for all origins)
+
+
 ## Features
 
 - **Personalized interviewing** based on Alex Sharma's cohort profile (22/31 days completed)
