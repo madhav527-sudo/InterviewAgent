@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import LoginPage from './pages/LoginPage'
 import LandingPage from './pages/LandingPage'
@@ -17,8 +17,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Login page - no layout */}
+        {/* Auth routes */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/sign-in" element={<LoginPage />} />
+        <Route path="/signin" element={<LoginPage />} />
+        <Route path="/signup" element={<LoginPage />} />
+        <Route path="/register" element={<LoginPage />} />
+
         {/* Video interview - no layout (fullscreen) */}
         <Route path="/video-interview/:sessionId" element={<VideoInterviewPage />} />
 
@@ -35,6 +40,9 @@ export default function App() {
           <Route path="/report/:sessionId" element={<ReportPage />} />
           <Route path="/about" element={<AboutPage />} />
         </Route>
+
+        {/* Catch-all route to prevent 404 or unhandled route crashes */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   )
