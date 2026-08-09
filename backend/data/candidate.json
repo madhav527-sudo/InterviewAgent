@@ -1,0 +1,104 @@
+{
+  "candidates": [
+    {
+      "id": "cand_001",
+      "name": "Alex Sharma",
+      "email": "alex.sharma@example.com",
+      "avatar_initials": "AS",
+      "cohort": "AI Engineering Cohort — Batch 7",
+      "enrollment_date": "2025-06-01",
+      "days_completed": 22,
+      "total_days": 31,
+      "overall_progress": 71,
+      "interview_readiness": 68,
+      "previous_interviews": [
+        {
+          "id": "int_prev_001",
+          "date": "2025-06-20",
+          "score": 62,
+          "topics_covered": ["Prompt Engineering", "RAG Basics"],
+          "status": "completed"
+        }
+      ],
+      "strengths": [
+        "Prompt Engineering",
+        "RAG Architecture",
+        "Embedding Models",
+        "Chain-of-Thought Reasoning"
+      ],
+      "weaknesses": [
+        "Vector Retrieval Optimization",
+        "Production Deployment",
+        "System Design at Scale",
+        "Monitoring & Observability"
+      ],
+      "skipped_topics": [
+        "Advanced MCP Patterns",
+        "Multi-Agent Orchestration"
+      ],
+      "repeated_attempts": {
+        "RAG Evaluation Metrics": 3,
+        "Vector Database Indexing": 2,
+        "Chunking Strategies": 2
+      },
+      "learning_signals": {
+        "conceptual_understanding": "strong",
+        "practical_implementation": "moderate",
+        "production_reasoning": "weak",
+        "system_design": "developing",
+        "debugging_skills": "moderate",
+        "communication": "strong"
+      },
+      "topic_mastery": {
+        "Prompt Engineering": { "level": "advanced", "score": 88, "status": "mastered" },
+        "RAG Architecture": { "level": "advanced", "score": 85, "status": "mastered" },
+        "Embedding Models": { "level": "intermediate", "score": 75, "status": "proficient" },
+        "Vector Databases": { "level": "intermediate", "score": 62, "status": "needs_practice" },
+        "Chunking Strategies": { "level": "intermediate", "score": 65, "status": "needs_practice" },
+        "RAG Evaluation": { "level": "beginner", "score": 55, "status": "needs_revision" },
+        "Agentic AI": { "level": "intermediate", "score": 70, "status": "proficient" },
+        "MCP Basics": { "level": "intermediate", "score": 68, "status": "proficient" },
+        "Advanced MCP": { "level": "not_started", "score": 0, "status": "skipped" },
+        "AI Deployment": { "level": "beginner", "score": 48, "status": "needs_revision" },
+        "Production Systems": { "level": "beginner", "score": 42, "status": "needs_revision" },
+        "LangChain Basics": { "level": "intermediate", "score": 72, "status": "proficient" },
+        "LangGraph": { "level": "intermediate", "score": 66, "status": "needs_practice" },
+        "Fine-Tuning": { "level": "intermediate", "score": 70, "status": "proficient" },
+        "Model Evaluation": { "level": "intermediate", "score": 73, "status": "proficient" }
+      },
+      "daily_progress": {
+        "1": { "status": "completed", "score": 90 },
+        "2": { "status": "completed", "score": 88 },
+        "3": { "status": "completed", "score": 85 },
+        "4": { "status": "completed", "score": 82 },
+        "5": { "status": "completed", "score": 78 },
+        "6": { "status": "completed", "score": 75 },
+        "7": { "status": "completed", "score": 80 },
+        "8": { "status": "completed", "score": 62 },
+        "9": { "status": "completed", "score": 58 },
+        "10": { "status": "completed", "score": 70 },
+        "11": { "status": "completed", "score": 72 },
+        "12": { "status": "completed", "score": 68 },
+        "13": { "status": "completed", "score": 74 },
+        "14": { "status": "completed", "score": 65 },
+        "15": { "status": "completed", "score": 70 },
+        "16": { "status": "completed", "score": 66 },
+        "17": { "status": "completed", "score": 60 },
+        "18": { "status": "completed", "score": 55 },
+        "19": { "status": "completed", "score": 72 },
+        "20": { "status": "completed", "score": 68 },
+        "21": { "status": "completed", "score": 48 },
+        "22": { "status": "completed", "score": 42 },
+        "23": { "status": "in_progress", "score": null },
+        "24": { "status": "not_started", "score": null },
+        "25": { "status": "not_started", "score": null },
+        "26": { "status": "skipped", "score": null },
+        "27": { "status": "not_started", "score": null },
+        "28": { "status": "not_started", "score": null },
+        "29": { "status": "not_started", "score": null },
+        "30": { "status": "not_started", "score": null },
+        "31": { "status": "not_started", "score": null }
+      }
+    }
+  ]
+}

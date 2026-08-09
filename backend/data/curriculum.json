@@ -1,0 +1,341 @@
+{
+  "cohort_name": "31-Day AI Engineering Cohort",
+  "total_days": 31,
+  "modules": [
+    {
+      "id": "mod_01",
+      "name": "Foundations of AI & Prompt Engineering",
+      "days": [1, 2, 3, 4],
+      "color": "#6366f1"
+    },
+    {
+      "id": "mod_02",
+      "name": "RAG Architecture & Implementation",
+      "days": [5, 6, 7, 8, 9],
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "mod_03",
+      "name": "Vector Databases & Embeddings",
+      "days": [10, 11, 12, 13],
+      "color": "#a78bfa"
+    },
+    {
+      "id": "mod_04",
+      "name": "Advanced RAG & Evaluation",
+      "days": [14, 15, 16],
+      "color": "#c084fc"
+    },
+    {
+      "id": "mod_05",
+      "name": "Agentic AI & Tool Use",
+      "days": [17, 18, 19],
+      "color": "#818cf8"
+    },
+    {
+      "id": "mod_06",
+      "name": "MCP & Multi-Agent Systems",
+      "days": [20, 21, 22],
+      "color": "#6366f1"
+    },
+    {
+      "id": "mod_07",
+      "name": "LangChain & LangGraph",
+      "days": [23, 24, 25],
+      "color": "#7c3aed"
+    },
+    {
+      "id": "mod_08",
+      "name": "AI Deployment & Production",
+      "days": [26, 27, 28, 29],
+      "color": "#5b21b6"
+    },
+    {
+      "id": "mod_09",
+      "name": "Capstone & Integration",
+      "days": [30, 31],
+      "color": "#4c1d95"
+    }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "title": "Introduction to AI Engineering",
+      "module": "mod_01",
+      "topics": ["AI landscape overview", "Role of AI engineers", "Setting up development environment"],
+      "learning_objectives": ["Understand the AI engineering ecosystem", "Set up Python, APIs, and tooling"],
+      "difficulty": 1,
+      "mission": "Set up your AI development workspace and make your first API call to an LLM"
+    },
+    {
+      "day": 2,
+      "title": "Prompt Engineering Fundamentals",
+      "module": "mod_01",
+      "topics": ["Zero-shot prompting", "Few-shot prompting", "System prompts", "Prompt templates"],
+      "learning_objectives": ["Master basic prompting techniques", "Understand temperature and token settings"],
+      "difficulty": 2,
+      "mission": "Build a prompt template system that generates structured outputs for 3 different use cases"
+    },
+    {
+      "day": 3,
+      "title": "Advanced Prompt Engineering",
+      "module": "mod_01",
+      "topics": ["Chain-of-thought reasoning", "Self-consistency", "Prompt chaining", "Output parsing"],
+      "learning_objectives": ["Apply advanced prompting strategies", "Build multi-step prompt chains"],
+      "difficulty": 3,
+      "mission": "Create a chain-of-thought reasoning pipeline that solves multi-step problems"
+    },
+    {
+      "day": 4,
+      "title": "Prompt Optimization & Evaluation",
+      "module": "mod_01",
+      "topics": ["Prompt evaluation metrics", "A/B testing prompts", "Cost optimization", "Guardrails"],
+      "learning_objectives": ["Evaluate and optimize prompt performance", "Implement safety guardrails"],
+      "difficulty": 3,
+      "mission": "Build a prompt evaluation framework that scores and compares prompt variations"
+    },
+    {
+      "day": 5,
+      "title": "Introduction to RAG",
+      "module": "mod_02",
+      "topics": ["What is RAG", "RAG vs fine-tuning", "RAG architecture overview", "Document loading"],
+      "learning_objectives": ["Understand RAG fundamentals", "Load and preprocess documents"],
+      "difficulty": 2,
+      "mission": "Build a basic RAG pipeline that answers questions from a document collection"
+    },
+    {
+      "day": 6,
+      "title": "Text Chunking & Processing",
+      "module": "mod_02",
+      "topics": ["Chunking strategies", "Recursive splitting", "Semantic chunking", "Metadata extraction"],
+      "learning_objectives": ["Implement effective chunking strategies", "Optimize chunk size and overlap"],
+      "difficulty": 3,
+      "mission": "Implement 3 chunking strategies and compare retrieval quality across them"
+    },
+    {
+      "day": 7,
+      "title": "Embedding Models & Similarity",
+      "module": "mod_02",
+      "topics": ["Embedding fundamentals", "OpenAI embeddings", "Open-source embeddings", "Cosine similarity"],
+      "learning_objectives": ["Understand embedding representations", "Compare embedding model performance"],
+      "difficulty": 3,
+      "mission": "Compare 3 embedding models on a retrieval benchmark and analyze trade-offs"
+    },
+    {
+      "day": 8,
+      "title": "Building a Complete RAG Pipeline",
+      "module": "mod_02",
+      "topics": ["End-to-end RAG", "Query processing", "Context injection", "Response generation"],
+      "learning_objectives": ["Build a production-grade RAG pipeline", "Handle edge cases in retrieval"],
+      "difficulty": 4,
+      "mission": "Build a complete RAG application with query expansion and re-ranking"
+    },
+    {
+      "day": 9,
+      "title": "RAG Optimization & Debugging",
+      "module": "mod_02",
+      "topics": ["Retrieval quality metrics", "Debugging poor retrieval", "Hybrid search", "Query rewriting"],
+      "learning_objectives": ["Debug and optimize RAG pipelines", "Implement hybrid search"],
+      "difficulty": 4,
+      "mission": "Diagnose and fix retrieval failures in a broken RAG pipeline"
+    },
+    {
+      "day": 10,
+      "title": "Vector Database Fundamentals",
+      "module": "mod_03",
+      "topics": ["Vector DB concepts", "Indexing algorithms", "HNSW", "IVF", "Distance metrics"],
+      "learning_objectives": ["Understand vector indexing algorithms", "Choose appropriate distance metrics"],
+      "difficulty": 3,
+      "mission": "Set up a vector database and benchmark different indexing strategies"
+    },
+    {
+      "day": 11,
+      "title": "Pinecone & Weaviate",
+      "module": "mod_03",
+      "topics": ["Pinecone setup", "Weaviate setup", "Schema design", "Batch operations"],
+      "learning_objectives": ["Work with managed vector databases", "Design effective schemas"],
+      "difficulty": 3,
+      "mission": "Migrate a local vector store to Pinecone and Weaviate, compare performance"
+    },
+    {
+      "day": 12,
+      "title": "ChromaDB & FAISS",
+      "module": "mod_03",
+      "topics": ["ChromaDB for prototyping", "FAISS for scale", "Local vs cloud trade-offs", "Collection management"],
+      "learning_objectives": ["Use lightweight vector stores for development", "Scale with FAISS"],
+      "difficulty": 3,
+      "mission": "Build a multi-collection search system with ChromaDB and FAISS fallback"
+    },
+    {
+      "day": 13,
+      "title": "Vector Search Optimization",
+      "module": "mod_03",
+      "topics": ["Filtering strategies", "Metadata queries", "Namespace management", "Performance tuning"],
+      "learning_objectives": ["Optimize vector search performance", "Implement advanced filtering"],
+      "difficulty": 4,
+      "mission": "Optimize a slow vector search pipeline to achieve sub-100ms query times"
+    },
+    {
+      "day": 14,
+      "title": "RAG Evaluation Frameworks",
+      "module": "mod_04",
+      "topics": ["RAGAS metrics", "Faithfulness", "Answer relevancy", "Context precision", "Context recall"],
+      "learning_objectives": ["Evaluate RAG quality systematically", "Use RAGAS framework"],
+      "difficulty": 4,
+      "mission": "Build an automated RAG evaluation pipeline using RAGAS metrics"
+    },
+    {
+      "day": 15,
+      "title": "Advanced RAG Patterns",
+      "module": "mod_04",
+      "topics": ["Multi-query RAG", "Hypothetical document embeddings", "Step-back prompting", "Self-RAG"],
+      "learning_objectives": ["Implement advanced retrieval patterns", "Compare RAG architectures"],
+      "difficulty": 4,
+      "mission": "Implement HyDE and multi-query RAG, measure improvement over naive RAG"
+    },
+    {
+      "day": 16,
+      "title": "Production RAG Architecture",
+      "module": "mod_04",
+      "topics": ["Caching strategies", "Streaming responses", "Error handling", "Monitoring retrieval"],
+      "learning_objectives": ["Design RAG for production workloads", "Implement caching and streaming"],
+      "difficulty": 5,
+      "mission": "Add caching, streaming, and monitoring to your RAG pipeline"
+    },
+    {
+      "day": 17,
+      "title": "Introduction to Agentic AI",
+      "module": "mod_05",
+      "topics": ["Agent paradigm", "ReAct pattern", "Tool calling", "Agent loops"],
+      "learning_objectives": ["Understand agentic AI patterns", "Implement a basic agent loop"],
+      "difficulty": 3,
+      "mission": "Build a ReAct agent that uses tools to answer complex questions"
+    },
+    {
+      "day": 18,
+      "title": "Tool Use & Function Calling",
+      "module": "mod_05",
+      "topics": ["Function calling APIs", "Tool definitions", "Error handling", "Parallel tool use"],
+      "learning_objectives": ["Implement function calling", "Handle tool errors gracefully"],
+      "difficulty": 4,
+      "mission": "Create an agent with 5+ tools that can handle multi-step tasks"
+    },
+    {
+      "day": 19,
+      "title": "Agent Memory & Planning",
+      "module": "mod_05",
+      "topics": ["Short-term memory", "Long-term memory", "Planning strategies", "Self-reflection"],
+      "learning_objectives": ["Add memory to agents", "Implement planning capabilities"],
+      "difficulty": 4,
+      "mission": "Build an agent with working memory that plans and reflects on its actions"
+    },
+    {
+      "day": 20,
+      "title": "Model Context Protocol (MCP) Basics",
+      "module": "mod_06",
+      "topics": ["MCP overview", "MCP architecture", "Building MCP servers", "MCP clients"],
+      "learning_objectives": ["Understand MCP specification", "Build a basic MCP server"],
+      "difficulty": 3,
+      "mission": "Build an MCP server that exposes a database as a tool for AI assistants"
+    },
+    {
+      "day": 21,
+      "title": "Advanced MCP Patterns",
+      "module": "mod_06",
+      "topics": ["MCP resources", "MCP prompts", "MCP sampling", "Multi-server setups"],
+      "learning_objectives": ["Implement advanced MCP features", "Connect multiple MCP servers"],
+      "difficulty": 4,
+      "mission": "Build an MCP ecosystem with 3 servers that collaborate on complex tasks"
+    },
+    {
+      "day": 22,
+      "title": "Multi-Agent Orchestration",
+      "module": "mod_06",
+      "topics": ["Agent communication", "Task delegation", "Consensus mechanisms", "Agent supervision"],
+      "learning_objectives": ["Orchestrate multiple agents", "Handle agent conflicts"],
+      "difficulty": 5,
+      "mission": "Build a multi-agent system where agents debate and reach consensus"
+    },
+    {
+      "day": 23,
+      "title": "LangChain Fundamentals",
+      "module": "mod_07",
+      "topics": ["LangChain components", "Chains", "Prompts", "Output parsers", "LCEL"],
+      "learning_objectives": ["Build applications with LangChain", "Use LCEL for composition"],
+      "difficulty": 3,
+      "mission": "Rebuild your RAG pipeline using LangChain LCEL"
+    },
+    {
+      "day": 24,
+      "title": "LangGraph State Machines",
+      "module": "mod_07",
+      "topics": ["LangGraph concepts", "State graphs", "Nodes and edges", "Conditional routing"],
+      "learning_objectives": ["Build stateful AI workflows with LangGraph", "Design graph-based agents"],
+      "difficulty": 4,
+      "mission": "Build a LangGraph workflow that routes queries to specialized sub-agents"
+    },
+    {
+      "day": 25,
+      "title": "Advanced LangGraph Patterns",
+      "module": "mod_07",
+      "topics": ["Human-in-the-loop", "Parallel execution", "Checkpointing", "Streaming"],
+      "learning_objectives": ["Implement advanced LangGraph patterns", "Add human oversight"],
+      "difficulty": 5,
+      "mission": "Add human-in-the-loop approval and checkpointing to your LangGraph agent"
+    },
+    {
+      "day": 26,
+      "title": "Model Fine-Tuning",
+      "module": "mod_08",
+      "topics": ["When to fine-tune", "Dataset preparation", "LoRA", "QLoRA", "Evaluation"],
+      "learning_objectives": ["Fine-tune models for specific tasks", "Evaluate fine-tuned models"],
+      "difficulty": 4,
+      "mission": "Fine-tune a model on domain-specific data and compare with prompt engineering"
+    },
+    {
+      "day": 27,
+      "title": "AI API Design & Deployment",
+      "module": "mod_08",
+      "topics": ["FastAPI for AI", "Request validation", "Streaming endpoints", "Docker containers"],
+      "learning_objectives": ["Deploy AI models as APIs", "Containerize AI applications"],
+      "difficulty": 4,
+      "mission": "Deploy your RAG application as a production API with Docker"
+    },
+    {
+      "day": 28,
+      "title": "Scaling AI Systems",
+      "module": "mod_08",
+      "topics": ["Load balancing", "Caching layers", "Rate limiting", "Queue-based processing"],
+      "learning_objectives": ["Scale AI systems for production traffic", "Implement resilience patterns"],
+      "difficulty": 5,
+      "mission": "Add load balancing, caching, and rate limiting to your AI API"
+    },
+    {
+      "day": 29,
+      "title": "Monitoring & Observability",
+      "module": "mod_08",
+      "topics": ["LLM observability", "Tracing", "Cost tracking", "Quality monitoring", "Alerting"],
+      "learning_objectives": ["Monitor AI systems in production", "Track costs and quality"],
+      "difficulty": 4,
+      "mission": "Add tracing, cost tracking, and quality monitoring to your AI pipeline"
+    },
+    {
+      "day": 30,
+      "title": "Capstone Project — Part 1",
+      "module": "mod_09",
+      "topics": ["System design", "Architecture planning", "Component integration", "Testing strategy"],
+      "learning_objectives": ["Design a complete AI system", "Plan integration of all learned concepts"],
+      "difficulty": 5,
+      "mission": "Design and begin building a full-stack AI application using all cohort concepts"
+    },
+    {
+      "day": 31,
+      "title": "Capstone Project — Part 2",
+      "module": "mod_09",
+      "topics": ["Production deployment", "Demo preparation", "Documentation", "Future roadmap"],
+      "learning_objectives": ["Complete and present a production-ready AI application"],
+      "difficulty": 5,
+      "mission": "Complete, deploy, and present your capstone AI project"
+    }
+  ]
+}
