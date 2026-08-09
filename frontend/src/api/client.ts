@@ -29,11 +29,38 @@ const OFFLINE_QUESTIONS: Question[] = [
   { id: 'prompt-basics', text: 'What techniques would you use to make an LLM response more reliable and safe?', topic: 'Prompt Engineering', curriculum_day: 4, difficulty: 3, question_type: 'conceptual', context: '', is_followup: false, references_previous: 'rag-basics' },
 ]
 
+const safeUUID = (): string => {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID()
+  }
+  return Math.random().toString(36).substring(2, 10) + Date.now().toString(36).substring(4, 8)
+}
+
+const OFFLINE_CURRICULUM: Curriculum = {
+  cohort_name: '31-Day AI Engineering Cohort',
+  total_days: 31,
+  modules: [
+    { id: 'module-1', name: 'Module 1: LLM Core & Prompting', days: [1, 2, 3, 4, 5, 6, 7], color: '#ff6b00' },
+    { id: 'module-2', name: 'Module 2: RAG & Vector Databases', days: [8, 9, 10, 11, 12, 13, 14, 15], color: '#3b82f6' },
+    { id: 'module-3', name: 'Module 3: AI Agents & MCP', days: [16, 17, 18, 19, 20, 21, 22, 23], color: '#10b981' },
+    { id: 'module-4', name: 'Module 4: Production & Deployment', days: [24, 25, 26, 27, 28, 29, 30, 31], color: '#8b5cf6' },
+  ],
+  days: [
+    { day: 1, title: 'LLM Architectures & Transformers', module: 'module-1', mission: 'Understand attention mechanisms and LLM inference.', topics: ['Transformers', 'Attention', 'Tokenization'], learning_objectives: ['Master attention math', 'Understand KV cache'], difficulty: 2 },
+    { day: 4, title: 'Prompt Engineering & Safety', module: 'module-1', mission: 'Learn structured outputs, chain-of-thought, and guardrails.', topics: ['Prompt Engineering', 'Guardrails', 'Chain of Thought'], learning_objectives: ['System prompt optimization', 'Output schemas'], difficulty: 3 },
+    { day: 9, title: 'Vector DB Indexing & Search', module: 'module-2', mission: 'Master HNSW, IVFFlat, and similarity metrics.', topics: ['Vector Databases', 'HNSW', 'Embeddings'], learning_objectives: ['HNSW construction', 'Cos vs L2 distance'], difficulty: 3 },
+    { day: 12, title: 'Advanced RAG Pipelines', module: 'module-2', mission: 'Hybrid search, re-ranking, and query decomposition.', topics: ['RAG Architecture', 'Hybrid Search', 'Reranking'], learning_objectives: ['Reciprocal Rank Fusion', 'Cross-encoders'], difficulty: 4 },
+    { day: 18, title: 'Agentic AI Workflows', module: 'module-3', mission: 'Tool calling, multi-agent systems, and state management.', topics: ['Agentic AI', 'Tool Calling', 'ReAct'], learning_objectives: ['Stateful agent loops', 'Tool schema validation'], difficulty: 4 },
+    { day: 22, title: 'Model Context Protocol (MCP)', module: 'module-3', mission: 'Build MCP client/server integrations.', topics: ['MCP', 'Protocols', 'APIs'], learning_objectives: ['MCP server development', 'JSON-RPC transport'], difficulty: 3 },
+    { day: 28, title: 'AI Production Deployment', module: 'module-4', mission: 'Latency optimization, monitoring, and scaling.', topics: ['AI Deployment', 'Latency', 'vLLM'], learning_objectives: ['vLLM engine setup', 'Continuous batching'], difficulty: 5 },
+  ],
+}
+
 type OfflineSession = { config: InterviewConfig; index: number; answered: number; state: SessionState; answers: string[] }
 const offlineSessions = new Map<string, OfflineSession>()
 
 const createOfflineSession = (config: InterviewConfig): SessionState & { session_id: string } => {
-  const sessionId = `local-${crypto.randomUUID().slice(0, 8)}`
+  const sessionId = `local-${safeUUID().slice(0, 8)}`
   const state: SessionState = {
     session_id: sessionId, status: 'in_progress', current_question: OFFLINE_QUESTIONS[0],
     current_question_number: 1, total_questions: config.num_questions, current_difficulty: 1,
@@ -80,6 +107,10 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
     const err = await res.json().catch(() => ({ detail: res.statusText }))
     throw new Error(err.detail || 'Request failed')
   }
+  const contentType = res.headers.get('content-type') || ''
+  if (!contentType.includes('application/json')) {
+    throw new Error('Non-JSON response from backend')
+  }
   return res.json()
 }
 
@@ -106,7 +137,7 @@ export const api = {
 
   getCandidate: (id: string) => request<Candidate>(`/candidates/${id}`).catch(() => OFFLINE_CANDIDATE),
 
-  getCurriculum: () => request<Curriculum>('/curriculum'),
+  getCurriculum: () => request<Curriculum>('/curriculum').catch(() => OFFLINE_CURRICULUM),
 
   getTopics: () => request<{ topics: string[] }>('/topics').catch(() => ({ topics: OFFLINE_TOPICS })),
 

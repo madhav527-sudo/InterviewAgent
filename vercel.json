@@ -3,7 +3,7 @@
   "outputDirectory": "frontend/dist",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!assets/|.*\\.(?:css|js|json|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2)).*)",
       "destination": "/index.html"
     }
   ]
